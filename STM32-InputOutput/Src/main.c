@@ -76,7 +76,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+GPIO_PinState ButtonStatus;
 /* USER CODE END 0 */
 
 /**
@@ -118,6 +118,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		ButtonStatus=HAL_GPIO_ReadPin(GPIOA, userButton_Pin);	
+		HAL_GPIO_WritePin(GPIOC, LD4_Pin, ButtonStatus);
+		HAL_GPIO_WritePin(GPIOC, LD3_Pin, ButtonStatus);
   }
   /* USER CODE END 3 */
 }
